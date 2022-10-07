@@ -13,7 +13,7 @@ int main()
     string response = "y";
 	while (response == "y" || response == "Y" || response == "Yes" || response == "YES" || response == "yes") {
         cout << "Enter five test scores. I will drop the lowest one and average the other four.\n\n";
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < 5; i++) {
 			getScore();
         } // end for loop
 		lowestScore = findLowest();
@@ -32,14 +32,14 @@ void getScore() {
 	double score;
 	cout << "Enter a test score between 0 and 100: ";
 	cin >> score;
-	if (score < 0 || score>100) {
+	if (score < 0 || score > 100) {
 		cout << "Error. Enter a test score between 0 and 100: ";
 		cin >> score;
 	} // end if condition
 } // end getScore
 
 void calcAverage() {
-	average = (score + score + score + score+score) / 5;
+	average = (score + score + score + score + score) / 5;
 } // end calcAverage
 
 int findLowest() {
