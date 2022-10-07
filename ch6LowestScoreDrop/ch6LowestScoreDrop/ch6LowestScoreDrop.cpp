@@ -19,7 +19,6 @@ int main()
 			getScore(score4);
 			getScore(score5);
 			calcAverage(score1, score2, score3, score4, score5);
-		
 		cout << "Do you want to enter more scores? (y/n) ";
 		cin >> response;
 	} // end while loop
