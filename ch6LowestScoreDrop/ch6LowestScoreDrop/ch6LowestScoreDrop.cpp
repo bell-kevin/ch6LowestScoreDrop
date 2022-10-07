@@ -3,6 +3,7 @@
 #include <iostream>
 using namespace std;
 void getScore(int &score);
+void calcAverage(int, int, int, int, int);
 int findLowest(int, int, int, int, int);
 double lowestScore, average = 0;
 int score1, score2, score3, score4, score5, score;
@@ -17,8 +18,8 @@ int main()
 			getScore(score3);
 			getScore(score4);
 			getScore(score5);
-		int lowScore = findLowest(score1, score2, score3, score4, score5);
-		cout << "Lowest score being dropped: " << lowestScore << endl;
+			calcAverage(score1, score2, score3, score4, score5);
+		
 		cout << "Do you want to enter more scores? (y/n) ";
 		cin >> response;
 	} // end while loop
@@ -34,19 +35,23 @@ void getScore(int &score) {
 		cin >> score;
 	} // end if condition
 } // end getScore
+
+void calcAverage(int score1, int score2, int score3, int score4, int score5) {
+	lowestScore = findLowest(score1, score2, score3, score4, score5);
+	cout << "Lowest score being dropped: " << lowestScore << endl;
+	average = (score1 + score2 + score3 + score4 + score5 - lowestScore) / 4;
+	cout << "Average of the four highest scores: " << average << endl << endl;
+} // end calcAverage
+
 int findLowest(int score1, int score2, int score3, int score4, int score5) {
-	int lowScore=1111;
-	if (score1 < score2) {
-		lowScore = score1;
-	}
-	if (score2 < score3) {
-		lowScore = score2;
-	}
-	if (score3 < score4) {
-		lowScore = score3;
-	}
-	if (score4 < score5) {
-		lowScore = score4;
-	} // end if condition
-	return lowScore;
+	if (score1 < score2 && score1 < score3 && score1 < score4 && score1 < score5)
+		return score1;
+	else if (score2 < score1 && score2 < score3 && score2 < score4 && score2 < score5)
+		return score2;
+	else if (score3 < score1 && score3 < score2 && score3 < score4 && score3 < score5)
+		return score3;
+	else if (score4 < score1 && score4 < score2 && score4 < score3 && score4 < score5)
+		return score4;
+	else
+		return score5;
 } // end findLowest
