@@ -29,7 +29,6 @@ int main()
 } // end main
 
 void getScore() {
-	double score;
 	cout << "Enter a test score between 0 and 100: ";
 	cin >> score;
 	while (score < 0 || score > 100) {
